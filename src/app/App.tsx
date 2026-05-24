@@ -498,7 +498,7 @@ export default function App() {
                 <div className="relative overflow-hidden" style={{ height: "280px", background: "var(--muted)" }}>
                   <img src="/profile.jpg" alt="Sandeep Rawat — SAP AI Evangelist"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: "35% 30%", transform: "scale(2.2)", transformOrigin: "35% 30%" }} />
+                    style={{ objectPosition: "35% 18%", transform: "scale(1.85)", transformOrigin: "35% 18%" }} />
                   {/* gradient overlay keeps text readable over photo */}
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,18,35,0.88) 0%, rgba(10,18,35,0.15) 50%, transparent 100%)" }} />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(196,155,75,0.06) 0%, transparent 60%)" }} />

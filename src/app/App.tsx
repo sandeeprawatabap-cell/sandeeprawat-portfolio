@@ -418,6 +418,22 @@ export default function App() {
         </div>
       </nav>
 
+      {/* ── Hero Marquee Strip ── */}
+      <div className="relative z-10 overflow-hidden border-b" style={{ background: "var(--primary)", borderColor: "rgba(255,255,255,0.08)" }}>
+        <style>{`
+          @keyframes marquee-top { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+          .marquee-top { display: flex; width: max-content; animation: marquee-top 32s linear infinite; }
+        `}</style>
+        <div className="marquee-top py-2.5">
+          {["Helping Organizations Transform with SAP", "S/4HANA Greenfield & Brownfield", "RISE with SAP Migration", "SAP Enterprise Architecture", "Generative AI on SAP BTP", "SAP AI Core & Joule", "Digital Transformation Leadership", "SAP Centre of Excellence", "Helping Organizations Transform with SAP", "S/4HANA Greenfield & Brownfield", "RISE with SAP Migration", "SAP Enterprise Architecture", "Generative AI on SAP BTP", "SAP AI Core & Joule", "Digital Transformation Leadership", "SAP Centre of Excellence"].map((item, i) => (
+            <span key={i} className="flex items-center gap-3 px-5 text-xs font-medium whitespace-nowrap"
+              style={{ fontFamily: "JetBrains Mono, monospace", color: i % 2 === 0 ? "#FFFFFF" : "rgba(196,155,75,0.9)" }}>
+              <span style={{ color: "#C49B4B", fontSize: "0.5rem" }}>◆</span>{item}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ── Hero ── */}
       <section id="about" className="relative z-10 pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">

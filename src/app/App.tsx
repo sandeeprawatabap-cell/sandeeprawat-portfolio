@@ -440,36 +440,18 @@ export default function App() {
                 Transform with SAP
               </h1>
 
-              {/* Hero marquee */}
-              <div className="relative overflow-hidden mb-6 py-2" style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-                <style>{`
-                  @keyframes marquee-hero { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-                  .marquee-hero { display: flex; width: max-content; animation: marquee-hero 28s linear infinite; }
-                `}</style>
-                <div className="marquee-hero">
-                  {["Helping Organizations Transform with SAP", "S/4HANA Greenfield & Brownfield", "RISE with SAP Migration", "SAP Enterprise Architecture", "Generative AI on SAP BTP", "SAP AI Core & Joule", "Digital Transformation Leadership", "SAP Centre of Excellence", "Helping Organizations Transform with SAP", "S/4HANA Greenfield & Brownfield", "RISE with SAP Migration", "SAP Enterprise Architecture", "Generative AI on SAP BTP", "SAP AI Core & Joule", "Digital Transformation Leadership", "SAP Centre of Excellence"].map((item, i) => (
-                    <span key={i} className="flex items-center gap-3 px-4 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "JetBrains Mono, monospace", color: i % 2 === 0 ? "var(--primary)" : "var(--muted-foreground)" }}>
-                      <span style={{ color: "#C49B4B" }}>◆</span>{item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               <p className="text-lg leading-relaxed mb-2 max-w-xl" style={{ color: "var(--foreground)", opacity: 0.80 }}>
-                I'm <strong>Sandeep Rawat PMP®</strong> — SAP AI Evangelist & Enterprise Architect with 17+ years driving complex SAP transformations at Volkswagen Group, IBM, Deluxe, and TCS.
-              </p>
-              <p className="text-base leading-relaxed mb-4 max-w-xl" style={{ color: "var(--muted-foreground)" }}>
-                From S/4HANA architecture to Generative AI on SAP BTP — I bridge enterprise strategy with hands-on delivery across Finance, Supply Chain, and AI-powered automation.
+                I'm <strong>Sandeep Rawat PMP®</strong> — SAP AI Evangelist & Enterprise Architect with 17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS.
               </p>
               <p className="text-base leading-relaxed mb-10 max-w-xl" style={{ color: "var(--muted-foreground)" }}>
-                Specialising in RISE with SAP, SAP Transformation Roadmaps, Greenfield/Brownfield migrations, SAP AI Core, and building Centres of Excellence that sustain long-term digital innovation. SAP Gen AI Certified · PMP® · 6 active certifications.
+                From S/4HANA architecture to Generative AI on SAP BTP — I bridge enterprise strategy with hands-on delivery. SAP Gen AI Certified · PMP® · 6 active certifications.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-12">
-                <button onClick={() => scrollTo("Competencies")}
+                <button onClick={() => scrollTo("Services")}
                   className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold transition-all duration-200 hover:opacity-88"
                   style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Outfit, sans-serif" }}>
-                  View Competencies <ArrowRight size={15} />
+                  View Services <ArrowRight size={15} />
                 </button>
                 <button onClick={() => scrollTo("AI Journey")}
                   className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-medium border transition-all duration-200"
@@ -498,9 +480,9 @@ export default function App() {
               {/* Profile card */}
               <div className="rounded-xl border overflow-hidden" style={{ background: "var(--card)", borderColor: "var(--border)", boxShadow: "0 4px 24px rgba(13,27,46,0.08), 0 1px 3px rgba(13,27,46,0.06)" }}>
                 <div className="relative overflow-hidden" style={{ height: "280px", background: "var(--muted)" }}>
-                  <img src="/profile.png" alt="Sandeep Rawat — SAP AI Evangelist"
+                  <img src="/profile.jpg" alt="Sandeep Rawat — SAP AI Evangelist"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: "50% 10%", transform: "scale(1.15)", transformOrigin: "50% 10%" }} />
+                    style={{ objectPosition: "32% 8%", transform: "scale(1.6)", transformOrigin: "32% 8%" }} />
                   {/* gradient overlay keeps text readable over photo */}
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,18,35,0.88) 0%, rgba(10,18,35,0.15) 50%, transparent 100%)" }} />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(196,155,75,0.06) 0%, transparent 60%)" }} />

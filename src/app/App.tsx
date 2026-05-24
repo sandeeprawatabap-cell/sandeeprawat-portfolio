@@ -36,7 +36,7 @@ const STATS = [
   { label: "Years Experience", value: "17+" },
   { label: "SAP Implementations", value: "15+" },
   { label: "Countries Served", value: "12" },
-  { label: "Enterprise Clients", value: "60+" },
+  { label: "Enterprise Clients", value: "17+" },
 ];
 
 const TICKER_ITEMS = [
@@ -45,7 +45,7 @@ const TICKER_ITEMS = [
   "Generative AI on SAP BTP",
   "LangChain & LangGraph",
   "SAP AI Core",
-  "Programme Management · PMP®",
+  "Program Management · PMP®",
   "SAP Fiori & UI5",
   "ABAP Development",
   "SAP GRC & Compliance",
@@ -57,7 +57,7 @@ const TICKER_ITEMS = [
 ];
 
 const TRUSTED_AT = [
-  "Volkswagen IT Services",
+  "Volkswagen Group Digital Solution India",
   "IBM",
   "Deluxe",
   "Tata Consultancy Services",
@@ -81,10 +81,10 @@ const SERVICES = [
   },
   {
     icon: Users,
-    title: "SAP Programme Management",
+    title: "SAP Program Management",
     desc: "Lead complex multi-vendor, multi-country SAP transformation programmes with PMP®-grade governance, risk management, and onsite-offshore coordination.",
     tags: ["PMP®", "Governance", "Multi-vendor", "Risk Management"],
-    cta: "Programme Leadership",
+    cta: "Program Leadership",
   },
   {
     icon: TrendingUp,
@@ -131,7 +131,7 @@ const ROADMAP = [
   {
     year: "2020",
     role: "SAP AI Evangelist | SAP Enterprise Architect",
-    company: "Volkswagen IT Services India",
+    company: "Volkswagen Group Digital Solution India",
     location: "Pune, India",
     desc: "Leading SAP transformation programmes for Volkswagen Group as SAP AI Evangelist and Enterprise Architect. Driving S/4HANA adoption, Generative AI integration on SAP BTP, and enterprise architecture strategy across the global Volkswagen landscape.",
     tags: ["S/4HANA", "SAP AI Evangelist", "SAP Enterprise Architect", "Automotive"],
@@ -230,7 +230,7 @@ const ACHIEVEMENTS = [
   {
     icon: TrendingUp,
     title: "S/4HANA Greenfield Transformation",
-    company: "Volkswagen IT Services — Automotive",
+    company: "Volkswagen Group Digital Solution India — Automotive",
     desc: "Leading end-to-end SAP S/4HANA transformation at Volkswagen Group as SAP AI Evangelist and Enterprise Architect — governance, architecture, and multi-team delivery.",
     impact: "On-time delivery, zero disruption",
   },

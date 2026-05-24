@@ -30,7 +30,7 @@ import {
   Network,
 } from "lucide-react";
 
-const NAV_ITEMS = ["About", "Services", "Roadmap", "Expertise", "AI Journey", "Certifications", "Achievements", "Contact"];
+const NAV_ITEMS = ["About", "Competencies", "Roadmap", "Expertise", "AI Journey", "Certifications", "Achievements", "Contact"];
 
 const STATS = [
   { label: "Years Experience", value: "17+" },
@@ -537,16 +537,16 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── Services ── */}
+      {/* ── Core Competencies ── */}
       <section id="services" className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionLabel>What I Offer</SectionLabel>
+          <SectionLabel>Core Competencies</SectionLabel>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <h2 className="text-4xl font-bold tracking-tight" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>
-              How I Can<br />Help Your Organization
+              Areas of Deep<br />SAP Expertise
             </h2>
             <p className="max-w-sm text-sm leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
-              From architecture blueprints to AI integration — end-to-end SAP expertise delivered with 17 years of enterprise programme experience.
+              17+ years of hands-on SAP experience spanning enterprise architecture, AI integration, program governance, and digital transformation.
             </p>
           </div>
 
@@ -555,7 +555,7 @@ export default function App() {
               const Icon = svc.icon;
               return (
                 <motion.div key={svc.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.08 }} viewport={{ once: true }}
-                  className="group flex flex-col p-8 rounded-xl border transition-all duration-300 hover:border-primary/25 hover:shadow-md"
+                  className="flex flex-col p-8 rounded-xl border"
                   style={{ background: "var(--card)", borderColor: "var(--border)", boxShadow: "0 1px 4px rgba(13,27,46,0.05)" }}>
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-11 h-11 rounded-lg flex items-center justify-center" style={{ background: "rgba(196,155,75,0.10)", border: "1px solid rgba(196,155,75,0.18)" }}>
@@ -565,12 +565,7 @@ export default function App() {
                   </div>
                   <h3 className="text-xl font-bold mb-3" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>{svc.title}</h3>
                   <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color: "var(--muted-foreground)" }}>{svc.desc}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-6">{svc.tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
-                  <a href="mailto:sandeeprawatabap@gmail.com"
-                    className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
-                    style={{ color: "var(--primary)", fontFamily: "Inter, sans-serif" }}>
-                    {svc.cta} <ArrowRight size={14} />
-                  </a>
+                  <div className="flex flex-wrap gap-1.5">{svc.tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
                 </motion.div>
               );
             })}

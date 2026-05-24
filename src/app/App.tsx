@@ -419,7 +419,7 @@ export default function App() {
       </nav>
 
       {/* ── Hero Marquee Strip ── */}
-      <div className="relative z-10 overflow-hidden border-b" style={{ background: "var(--primary)", borderColor: "rgba(255,255,255,0.08)" }}>
+      <div className="relative z-10 overflow-hidden border-b" style={{ background: "var(--primary)", borderColor: "rgba(255,255,255,0.08)", marginTop: "64px" }}>
         <style>{`
           @keyframes marquee-top { from { transform: translateX(0) } to { transform: translateX(-50%) } }
           .marquee-top { display: flex; width: max-content; animation: marquee-top 32s linear infinite; }
@@ -435,7 +435,7 @@ export default function App() {
       </div>
 
       {/* ── Hero ── */}
-      <section id="about" className="relative z-10 pt-32 pb-20 px-6">
+      <section id="about" className="relative z-10 pt-16 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

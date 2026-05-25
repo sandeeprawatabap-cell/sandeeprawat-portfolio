@@ -421,36 +421,36 @@ export default function App() {
       {/* ── Hero ── */}
       <section id="about" className="relative overflow-hidden" style={{ minHeight: "92vh", background: "#050508" }}>
 
-        {/* Full-bleed profile photo — smooth dark-to-image blend */}
+        {/* Profile photo — CSS mask fades left edge directly into dark bg, no seam */}
         <div className="absolute inset-0">
           <img src="/profile.jpg" alt=""
             className="absolute"
             style={{
-              top: 0, right: "-14%",
-              width: "52%",
+              top: 0, right: "-8%",
+              width: "62%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "32% 12%",
-              transform: "scale(1.25)",
-              transformOrigin: "42% 12%",
-              filter: "brightness(0.52) saturate(0.85)",
+              objectPosition: "35% 10%",
+              transform: "scale(1.15)",
+              transformOrigin: "45% 10%",
+              filter: "brightness(0.62) saturate(0.82)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.6) 22%, black 36%, black 100%)",
+              maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.6) 22%, black 36%, black 100%)",
             }} />
-          {/* Gradual blend: dark starts early, feathers into photo naturally */}
+          {/* Subtle overall tint — no hard gradient line */}
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(to right, #050508 20%, rgba(5,5,8,0.92) 38%, rgba(5,5,8,0.60) 55%, rgba(5,5,8,0.30) 70%, rgba(5,5,8,0.48) 100%)"
+            background: "linear-gradient(to right, #050508 12%, rgba(5,5,8,0.45) 40%, rgba(5,5,8,0.12) 65%, rgba(5,5,8,0.28) 100%)"
           }} />
-          {/* Top fade */}
-          <div className="absolute top-0 left-0 right-0" style={{ height: "120px", background: "linear-gradient(to bottom, #050508, transparent)" }} />
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0" style={{ height: "180px", background: "linear-gradient(to bottom, transparent, #050508)" }} />
+          {/* Top + bottom fades */}
+          <div className="absolute top-0 left-0 right-0" style={{ height: "100px", background: "linear-gradient(to bottom, #050508, transparent)" }} />
+          <div className="absolute bottom-0 left-0 right-0" style={{ height: "160px", background: "linear-gradient(to bottom, transparent, #050508)" }} />
         </div>
 
-        {/* Content — flex column so stats are pushed to the bottom */}
+        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-between" style={{ minHeight: "92vh", paddingTop: "7rem", paddingBottom: "2.5rem" }}>
 
-          {/* Top: main text + identity */}
-          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-xl">
-            {/* Status badge */}
+          {/* Top: badge + heading + buttons */}
+          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8 border"
               style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)" }}>
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
@@ -466,7 +466,7 @@ export default function App() {
               Transform with SAP
             </h1>
 
-            <div className="flex flex-wrap gap-3 mb-10">
+            <div className="flex flex-wrap gap-3">
               <button onClick={() => scrollTo("Services")}
                 className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold transition-all duration-200 hover:opacity-88"
                 style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Outfit, sans-serif" }}>
@@ -478,45 +478,49 @@ export default function App() {
                 SAP AI Journey <ExternalLink size={14} />
               </button>
             </div>
+          </motion.div>
 
-            {/* Identity */}
-            <div>
+          {/* Bottom: identity (left) + stats/cert (right) — side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+
+            {/* Left: name / title / bio */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
               <div className="font-bold text-xl mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>
                 Sandeep Rawat <span style={{ color: "var(--primary)", fontSize: "0.7em" }}>PMP®</span>
               </div>
               <div className="text-sm mb-2" style={{ color: "rgba(240,237,230,0.65)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
-              <div className="flex items-center gap-1.5 text-xs mb-3" style={{ color: "rgba(240,237,230,0.45)" }}>
+              <div className="flex items-center gap-1.5 text-xs mb-4" style={{ color: "rgba(240,237,230,0.45)" }}>
                 <MapPin size={11} /> Pune, Maharashtra · India
               </div>
               <p className="text-sm leading-relaxed max-w-sm" style={{ color: "rgba(240,237,230,0.55)" }}>
                 17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · PMP® · 6 active certifications.
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Bottom strip: stats + cert badge */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-10"
-            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}>
-            {STATS.map((stat) => (
-              <div key={stat.label} className="p-4 rounded-xl border"
-                style={{ background: "rgba(5,5,8,0.55)", borderColor: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)" }}>
-                <div className="text-2xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
-                <div className="text-xs uppercase tracking-wider" style={{ color: "rgba(240,237,230,0.72)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
+            {/* Right: stats grid + cert badge */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}>
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                {STATS.map((stat) => (
+                  <div key={stat.label} className="p-4 rounded-xl border"
+                    style={{ background: "rgba(5,5,8,0.6)", borderColor: "rgba(255,255,255,0.13)", backdropFilter: "blur(10px)" }}>
+                    <div className="text-2xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: "rgba(240,237,230,0.75)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
+                  </div>
+                ))}
               </div>
-            ))}
-            <div className="p-4 rounded-xl border flex items-center gap-3 col-span-2 md:col-span-1 lg:col-span-1"
-              style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)", backdropFilter: "blur(8px)" }}>
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(196,155,75,0.15)" }}>
-                <Sparkles size={15} style={{ color: "#C49B4B" }} />
+              <div className="p-4 rounded-xl border flex items-center gap-3"
+                style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)", backdropFilter: "blur(10px)" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(196,155,75,0.15)" }}>
+                  <Sparkles size={15} style={{ color: "#C49B4B" }} />
+                </div>
+                <div>
+                  <div className="text-xs font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
+                  <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.55)" }}>6 Active Certifications</div>
+                </div>
               </div>
-              <div>
-                <div className="text-xs font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
-                <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.55)" }}>6 Active Certifications</div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
+          </div>
         </div>
       </section>
 

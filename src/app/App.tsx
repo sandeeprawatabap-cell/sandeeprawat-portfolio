@@ -426,14 +426,14 @@ export default function App() {
           <img src="/profile.jpg" alt=""
             className="absolute"
             style={{
-              top: 0, right: "-4%",
-              width: "48%",
+              top: 0, right: "-14%",
+              width: "52%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "40% 12%",
+              objectPosition: "32% 12%",
               transform: "scale(1.25)",
-              transformOrigin: "50% 12%",
-              filter: "brightness(0.72) saturate(0.85)",
+              transformOrigin: "42% 12%",
+              filter: "brightness(0.78) saturate(0.85)",
             }} />
           {/* Sharp gradient: left 52% pure dark, right shows photo */}
           <div className="absolute inset-0" style={{
@@ -480,44 +480,23 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Delivered at */}
-              <div>
-                <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "rgba(240,237,230,0.38)", fontFamily: "JetBrains Mono, monospace" }}>
-                  Delivered at
-                </p>
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                  {TRUSTED_AT.map((company, i) => (
-                    <span key={company} className="text-sm font-medium" style={{ color: i === 0 ? "var(--primary)" : "rgba(240,237,230,0.5)" }}>
-                      {company}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right — bio + stats (overlaps the photo) */}
-            <motion.div className="flex flex-col gap-7" initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
-
-              {/* Name / title */}
+              {/* Identity block — replaces company list */}
               <div>
                 <div className="font-bold text-xl mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>
                   Sandeep Rawat <span style={{ color: "var(--primary)", fontSize: "0.7em" }}>PMP®</span>
                 </div>
-                <div className="text-sm mb-1.5" style={{ color: "rgba(240,237,230,0.6)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
-                <div className="flex items-center gap-1.5 text-xs" style={{ color: "rgba(240,237,230,0.4)" }}>
+                <div className="text-sm mb-2" style={{ color: "rgba(240,237,230,0.6)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
+                <div className="flex items-center gap-1.5 text-xs mb-4" style={{ color: "rgba(240,237,230,0.4)" }}>
                   <MapPin size={11} /> Pune, Maharashtra · India
                 </div>
+                <p className="text-sm leading-relaxed max-w-sm" style={{ color: "rgba(240,237,230,0.55)" }}>
+                  17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · PMP® · 6 active certifications.
+                </p>
               </div>
+            </motion.div>
 
-              {/* Bio */}
-              <div>
-                <p className="text-base leading-relaxed mb-3" style={{ color: "rgba(240,237,230,0.8)" }}>
-                  I'm <strong style={{ color: "#F0EDE6" }}>Sandeep Rawat PMP®</strong> — SAP AI Evangelist & Enterprise Architect with 17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS.
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(240,237,230,0.5)" }}>
-                  From S/4HANA architecture to Generative AI on SAP BTP — I bridge enterprise strategy with hands-on delivery. SAP Gen AI Certified · PMP® · 6 active certifications.
-                </p>
-              </div>
+            {/* Right — stats + cert (overlaps the photo) */}
+            <motion.div className="flex flex-col gap-7" initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-3">

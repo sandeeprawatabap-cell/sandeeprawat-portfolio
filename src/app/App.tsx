@@ -426,18 +426,18 @@ export default function App() {
           <img src="/profile.jpg" alt=""
             className="absolute"
             style={{
-              top: 0, right: 0,
-              width: "62%",
+              top: 0, right: "-4%",
+              width: "48%",
               height: "100%",
               objectFit: "cover",
               objectPosition: "40% 12%",
               transform: "scale(1.25)",
               transformOrigin: "50% 12%",
-              filter: "brightness(0.48) saturate(0.8)",
+              filter: "brightness(0.72) saturate(0.85)",
             }} />
-          {/* Left-dominant gradient merges photo into dark bg */}
+          {/* Sharp gradient: left 52% pure dark, right shows photo */}
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(to right, #050508 22%, rgba(5,5,8,0.82) 45%, rgba(5,5,8,0.28) 68%, rgba(5,5,8,0.55) 100%)"
+            background: "linear-gradient(to right, #050508 48%, rgba(5,5,8,0.72) 58%, rgba(5,5,8,0.08) 72%, transparent 100%)"
           }} />
           {/* Top fade for navbar clearance */}
           <div className="absolute top-0 left-0 right-0" style={{ height: "120px", background: "linear-gradient(to bottom, #050508, transparent)" }} />
@@ -460,13 +460,11 @@ export default function App() {
                 </span>
               </div>
 
-              {/* HUGE headline — merges into photo */}
-              <h1 className="font-black tracking-tight leading-[0.92] mb-10"
-                style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.8rem, 10vw, 8.5rem)", color: "#F0EDE6" }}>
+              <h1 className="font-bold leading-[1.0] mb-6 tracking-tight"
+                style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.2rem, 7vw, 5.5rem)", color: "#F0EDE6" }}>
                 Helping<br />
                 <span style={{ color: "var(--primary)" }}>Organizations</span><br />
-                Transform<br />
-                with SAP
+                Transform with SAP
               </h1>
 
               <div className="flex flex-wrap gap-3 mb-12">

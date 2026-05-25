@@ -751,11 +751,8 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-4xl font-bold mb-5 tracking-tight" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>
-                Let's Architect Your<br /><span style={{ color: "var(--primary)" }}>Next SAP Journey</span>
+                Let's Architect
               </h2>
-              <p className="text-base leading-relaxed mb-10 max-w-md" style={{ color: "var(--muted-foreground)" }}>
-                Available for SAP advisory engagements, architecture consulting, and enterprise transformation programmes. Let's discuss your roadmap.
-              </p>
               <div className="space-y-5 mb-10">
                 {CONTACT_ITEMS.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-center gap-4">
@@ -773,7 +770,7 @@ export default function App() {
             </div>
 
             <div className="p-8 rounded-xl border" style={{ background: "var(--card)", borderColor: "var(--border)", boxShadow: "0 4px 24px rgba(13,27,46,0.07)" }}>
-              <h3 className="text-lg font-semibold mb-6" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>Request Consultation</h3>
+              <h3 className="text-lg font-semibold mb-6" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>Contact me</h3>
               <div className="space-y-4">
                 {[{ label: "Full Name", placeholder: "John Smith", type: "text" }, { label: "Company", placeholder: "Acme Corporation", type: "text" }, { label: "Email Address", placeholder: "john@acme.com", type: "email" }].map(({ label, placeholder, type }) => (
                   <div key={label}>

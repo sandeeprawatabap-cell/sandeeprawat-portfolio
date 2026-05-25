@@ -421,7 +421,7 @@ export default function App() {
       {/* ── Hero ── */}
       <section id="about" className="relative overflow-hidden" style={{ minHeight: "92vh", background: "#050508" }}>
 
-        {/* Full-bleed profile photo — merged background effect */}
+        {/* Full-bleed profile photo — smooth dark-to-image blend */}
         <div className="absolute inset-0">
           <img src="/profile.jpg" alt=""
             className="absolute"
@@ -433,96 +433,90 @@ export default function App() {
               objectPosition: "32% 12%",
               transform: "scale(1.25)",
               transformOrigin: "42% 12%",
-              filter: "brightness(0.78) saturate(0.85)",
+              filter: "brightness(0.52) saturate(0.85)",
             }} />
-          {/* Sharp gradient: left 52% pure dark, right shows photo */}
+          {/* Gradual blend: dark starts early, feathers into photo naturally */}
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(to right, #050508 48%, rgba(5,5,8,0.72) 58%, rgba(5,5,8,0.08) 72%, transparent 100%)"
+            background: "linear-gradient(to right, #050508 20%, rgba(5,5,8,0.92) 38%, rgba(5,5,8,0.60) 55%, rgba(5,5,8,0.30) 70%, rgba(5,5,8,0.48) 100%)"
           }} />
-          {/* Top fade for navbar clearance */}
+          {/* Top fade */}
           <div className="absolute top-0 left-0 right-0" style={{ height: "120px", background: "linear-gradient(to bottom, #050508, transparent)" }} />
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0" style={{ height: "160px", background: "linear-gradient(to bottom, transparent, #050508)" }} />
+          <div className="absolute bottom-0 left-0 right-0" style={{ height: "180px", background: "linear-gradient(to bottom, transparent, #050508)" }} />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center" style={{ minHeight: "92vh" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 items-center w-full pt-28 pb-16">
+        {/* Content — flex column so stats are pushed to the bottom */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-between" style={{ minHeight: "92vh", paddingTop: "7rem", paddingBottom: "2.5rem" }}>
 
-            {/* Left — large text overlaying image */}
-            <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              {/* Status badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8 border"
-                style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)" }}>
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
-                <span className="text-xs" style={{ fontFamily: "JetBrains Mono, monospace", color: "rgba(240,237,230,0.6)" }}>
-                  Available · View Capabilities · Pune, India
-                </span>
+          {/* Top: main text + identity */}
+          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-xl">
+            {/* Status badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8 border"
+              style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)" }}>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
+              <span className="text-xs" style={{ fontFamily: "JetBrains Mono, monospace", color: "rgba(240,237,230,0.6)" }}>
+                Available · View Capabilities · Pune, India
+              </span>
+            </div>
+
+            <h1 className="font-bold leading-[1.0] mb-6 tracking-tight"
+              style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.2rem, 7vw, 5.5rem)", color: "#F0EDE6" }}>
+              Helping<br />
+              <span style={{ color: "var(--primary)" }}>Organizations</span><br />
+              Transform with SAP
+            </h1>
+
+            <div className="flex flex-wrap gap-3 mb-10">
+              <button onClick={() => scrollTo("Services")}
+                className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold transition-all duration-200 hover:opacity-88"
+                style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Outfit, sans-serif" }}>
+                View Competencies <ArrowRight size={15} />
+              </button>
+              <button onClick={() => scrollTo("AI Journey")}
+                className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-medium border transition-all duration-200"
+                style={{ borderColor: "rgba(240,237,230,0.2)", color: "#F0EDE6", fontFamily: "Outfit, sans-serif", background: "transparent" }}>
+                SAP AI Journey <ExternalLink size={14} />
+              </button>
+            </div>
+
+            {/* Identity */}
+            <div>
+              <div className="font-bold text-xl mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>
+                Sandeep Rawat <span style={{ color: "var(--primary)", fontSize: "0.7em" }}>PMP®</span>
               </div>
-
-              <h1 className="font-bold leading-[1.0] mb-6 tracking-tight"
-                style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.2rem, 7vw, 5.5rem)", color: "#F0EDE6" }}>
-                Helping<br />
-                <span style={{ color: "var(--primary)" }}>Organizations</span><br />
-                Transform with SAP
-              </h1>
-
-              <div className="flex flex-wrap gap-3 mb-12">
-                <button onClick={() => scrollTo("Services")}
-                  className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold transition-all duration-200 hover:opacity-88"
-                  style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Outfit, sans-serif" }}>
-                  View Competencies <ArrowRight size={15} />
-                </button>
-                <button onClick={() => scrollTo("AI Journey")}
-                  className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-medium border transition-all duration-200"
-                  style={{ borderColor: "rgba(240,237,230,0.2)", color: "#F0EDE6", fontFamily: "Outfit, sans-serif", background: "transparent" }}>
-                  SAP AI Journey <ExternalLink size={14} />
-                </button>
+              <div className="text-sm mb-2" style={{ color: "rgba(240,237,230,0.65)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
+              <div className="flex items-center gap-1.5 text-xs mb-3" style={{ color: "rgba(240,237,230,0.45)" }}>
+                <MapPin size={11} /> Pune, Maharashtra · India
               </div>
+              <p className="text-sm leading-relaxed max-w-sm" style={{ color: "rgba(240,237,230,0.55)" }}>
+                17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · PMP® · 6 active certifications.
+              </p>
+            </div>
+          </motion.div>
 
-              {/* Identity block — replaces company list */}
+          {/* Bottom strip: stats + cert badge */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-10"
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}>
+            {STATS.map((stat) => (
+              <div key={stat.label} className="p-4 rounded-xl border"
+                style={{ background: "rgba(5,5,8,0.55)", borderColor: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)" }}>
+                <div className="text-2xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
+                <div className="text-xs uppercase tracking-wider" style={{ color: "rgba(240,237,230,0.72)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
+              </div>
+            ))}
+            <div className="p-4 rounded-xl border flex items-center gap-3 col-span-2 md:col-span-1 lg:col-span-1"
+              style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)", backdropFilter: "blur(8px)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(196,155,75,0.15)" }}>
+                <Sparkles size={15} style={{ color: "#C49B4B" }} />
+              </div>
               <div>
-                <div className="font-bold text-xl mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>
-                  Sandeep Rawat <span style={{ color: "var(--primary)", fontSize: "0.7em" }}>PMP®</span>
-                </div>
-                <div className="text-sm mb-2" style={{ color: "rgba(240,237,230,0.6)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
-                <div className="flex items-center gap-1.5 text-xs mb-4" style={{ color: "rgba(240,237,230,0.4)" }}>
-                  <MapPin size={11} /> Pune, Maharashtra · India
-                </div>
-                <p className="text-sm leading-relaxed max-w-sm" style={{ color: "rgba(240,237,230,0.55)" }}>
-                  17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · PMP® · 6 active certifications.
-                </p>
+                <div className="text-xs font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
+                <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.55)" }}>6 Active Certifications</div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Right — stats + cert (overlaps the photo) */}
-            <motion.div className="flex flex-col gap-7" initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-3">
-                {STATS.map((stat) => (
-                  <div key={stat.label} className="p-4 rounded-xl border"
-                    style={{ background: "rgba(240,237,230,0.04)", borderColor: "rgba(240,237,230,0.08)" }}>
-                    <div className="text-2xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
-                    <div className="text-xs uppercase tracking-wider" style={{ color: "rgba(240,237,230,0.4)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Cert badge */}
-              <div className="p-4 rounded-xl border flex items-center gap-4"
-                style={{ background: "rgba(196,155,75,0.06)", borderColor: "rgba(196,155,75,0.2)" }}>
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(196,155,75,0.12)" }}>
-                  <Sparkles size={17} style={{ color: "#C49B4B" }} />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
-                  <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.45)" }}>SAP AI Evangelist · 6 Active Certifications</div>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
         </div>
       </section>
 

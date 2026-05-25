@@ -419,33 +419,55 @@ export default function App() {
       </nav>
 
       {/* ── Hero ── */}
-      <section id="about" className="relative z-10 pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="relative overflow-hidden" style={{ minHeight: "92vh", background: "#050508" }}>
 
-            {/* Left */}
+        {/* Full-bleed profile photo — merged background effect */}
+        <div className="absolute inset-0">
+          <img src="/profile.jpg" alt=""
+            className="absolute"
+            style={{
+              top: 0, right: 0,
+              width: "62%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "40% 12%",
+              transform: "scale(1.25)",
+              transformOrigin: "50% 12%",
+              filter: "brightness(0.48) saturate(0.8)",
+            }} />
+          {/* Left-dominant gradient merges photo into dark bg */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(to right, #050508 22%, rgba(5,5,8,0.82) 45%, rgba(5,5,8,0.28) 68%, rgba(5,5,8,0.55) 100%)"
+          }} />
+          {/* Top fade for navbar clearance */}
+          <div className="absolute top-0 left-0 right-0" style={{ height: "120px", background: "linear-gradient(to bottom, #050508, transparent)" }} />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0" style={{ height: "160px", background: "linear-gradient(to bottom, transparent, #050508)" }} />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center" style={{ minHeight: "92vh" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 items-center w-full pt-28 pb-16">
+
+            {/* Left — large text overlaying image */}
             <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               {/* Status badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8 border"
                 style={{ background: "rgba(196,155,75,0.08)", borderColor: "rgba(196,155,75,0.25)" }}>
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
-                <span className="text-xs" style={{ fontFamily: "JetBrains Mono, monospace", color: "var(--muted-foreground)" }}>
+                <span className="text-xs" style={{ fontFamily: "JetBrains Mono, monospace", color: "rgba(240,237,230,0.6)" }}>
                   Available · View Capabilities · Pune, India
                 </span>
               </div>
 
-              <h1 className="font-bold leading-[1.0] mb-6 tracking-tight" style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.2rem, 7vw, 5.5rem)", color: "var(--foreground)" }}>
+              {/* HUGE headline — merges into photo */}
+              <h1 className="font-black tracking-tight leading-[0.92] mb-10"
+                style={{ fontFamily: "Outfit, sans-serif", fontSize: "clamp(3.8rem, 10vw, 8.5rem)", color: "#F0EDE6" }}>
                 Helping<br />
                 <span style={{ color: "var(--primary)" }}>Organizations</span><br />
-                Transform with SAP
+                Transform<br />
+                with SAP
               </h1>
-
-              <p className="text-lg leading-relaxed mb-2 max-w-xl" style={{ color: "var(--foreground)", opacity: 0.80 }}>
-                I'm <strong>Sandeep Rawat PMP®</strong> — SAP AI Evangelist & Enterprise Architect with 17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS.
-              </p>
-              <p className="text-base leading-relaxed mb-10 max-w-xl" style={{ color: "var(--muted-foreground)" }}>
-                From S/4HANA architecture to Generative AI on SAP BTP — I bridge enterprise strategy with hands-on delivery. SAP Gen AI Certified · PMP® · 6 active certifications.
-              </p>
 
               <div className="flex flex-wrap gap-3 mb-12">
                 <button onClick={() => scrollTo("Services")}
@@ -455,19 +477,19 @@ export default function App() {
                 </button>
                 <button onClick={() => scrollTo("AI Journey")}
                   className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-medium border transition-all duration-200"
-                  style={{ borderColor: "var(--border)", color: "var(--foreground)", fontFamily: "Outfit, sans-serif", background: "#FFFFFF" }}>
+                  style={{ borderColor: "rgba(240,237,230,0.2)", color: "#F0EDE6", fontFamily: "Outfit, sans-serif", background: "transparent" }}>
                   SAP AI Journey <ExternalLink size={14} />
                 </button>
               </div>
 
-              {/* Trusted at */}
+              {/* Delivered at */}
               <div>
-                <p className="text-xs uppercase tracking-widest mb-4" style={{ color: "var(--muted-foreground)", fontFamily: "JetBrains Mono, monospace" }}>
+                <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "rgba(240,237,230,0.38)", fontFamily: "JetBrains Mono, monospace" }}>
                   Delivered at
                 </p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                   {TRUSTED_AT.map((company, i) => (
-                    <span key={company} className="text-sm font-medium" style={{ color: i === 0 ? "var(--primary)" : "var(--muted-foreground)", opacity: i === 0 ? 1 : 0.75 }}>
+                    <span key={company} className="text-sm font-medium" style={{ color: i === 0 ? "var(--primary)" : "rgba(240,237,230,0.5)" }}>
                       {company}
                     </span>
                   ))}
@@ -475,51 +497,54 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* Right — profile + stats */}
-            <motion.div className="flex flex-col gap-4" initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
-              {/* Profile card */}
-              <div className="rounded-xl border overflow-hidden" style={{ background: "var(--card)", borderColor: "var(--border)", boxShadow: "0 4px 24px rgba(13,27,46,0.08), 0 1px 3px rgba(13,27,46,0.06)" }}>
-                <div className="relative overflow-hidden" style={{ height: "280px", background: "var(--muted)" }}>
-                  <img src="/profile.jpg" alt="Sandeep Rawat — SAP AI Evangelist"
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: "35% 18%", transform: "scale(1.85)", transformOrigin: "35% 18%" }} />
-                  {/* gradient overlay keeps text readable over photo */}
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,18,35,0.88) 0%, rgba(10,18,35,0.15) 50%, transparent 100%)" }} />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(196,155,75,0.06) 0%, transparent 60%)" }} />
-                  {/* Name overlay on image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="font-bold text-xl" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>Sandeep Rawat <span style={{ color: "#C49B4B", fontSize: "0.7em" }}>PMP®</span></div>
-                    <div className="text-sm mt-0.5" style={{ color: "rgba(240,237,230,0.75)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
-                    <div className="flex items-center gap-1.5 text-xs mt-1.5" style={{ color: "rgba(240,237,230,0.55)" }}>
-                      <MapPin size={11} /> Pune, Maharashtra · India
-                    </div>
-                  </div>
+            {/* Right — bio + stats (overlaps the photo) */}
+            <motion.div className="flex flex-col gap-7" initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
+
+              {/* Name / title */}
+              <div>
+                <div className="font-bold text-xl mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>
+                  Sandeep Rawat <span style={{ color: "var(--primary)", fontSize: "0.7em" }}>PMP®</span>
+                </div>
+                <div className="text-sm mb-1.5" style={{ color: "rgba(240,237,230,0.6)" }}>SAP AI Evangelist | SAP Enterprise Architect</div>
+                <div className="flex items-center gap-1.5 text-xs" style={{ color: "rgba(240,237,230,0.4)" }}>
+                  <MapPin size={11} /> Pune, Maharashtra · India
                 </div>
               </div>
 
-              {/* Stats grid */}
+              {/* Bio */}
+              <div>
+                <p className="text-base leading-relaxed mb-3" style={{ color: "rgba(240,237,230,0.8)" }}>
+                  I'm <strong style={{ color: "#F0EDE6" }}>Sandeep Rawat PMP®</strong> — SAP AI Evangelist & Enterprise Architect with 17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(240,237,230,0.5)" }}>
+                  From S/4HANA architecture to Generative AI on SAP BTP — I bridge enterprise strategy with hands-on delivery. SAP Gen AI Certified · PMP® · 6 active certifications.
+                </p>
+              </div>
+
+              {/* Stats */}
               <div className="grid grid-cols-2 gap-3">
                 {STATS.map((stat) => (
-                  <div key={stat.label} className="p-5 rounded-xl border text-center"
-                    style={{ background: "var(--card)", borderColor: "var(--border)", boxShadow: "0 1px 4px rgba(13,27,46,0.05)" }}>
-                    <div className="text-3xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
-                    <div className="text-xs uppercase tracking-wider" style={{ color: "var(--muted-foreground)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
+                  <div key={stat.label} className="p-4 rounded-xl border"
+                    style={{ background: "rgba(240,237,230,0.04)", borderColor: "rgba(240,237,230,0.08)" }}>
+                    <div className="text-2xl font-bold mb-1" style={{ fontFamily: "Outfit, sans-serif", color: "var(--primary)" }}>{stat.value}</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: "rgba(240,237,230,0.4)", fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              {/* Badge */}
+              {/* Cert badge */}
               <div className="p-4 rounded-xl border flex items-center gap-4"
-                style={{ background: "rgba(196,155,75,0.05)", borderColor: "rgba(196,155,75,0.22)" }}>
+                style={{ background: "rgba(196,155,75,0.06)", borderColor: "rgba(196,155,75,0.2)" }}>
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(196,155,75,0.12)" }}>
                   <Sparkles size={17} style={{ color: "#C49B4B" }} />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "var(--foreground)" }}>SAP Gen AI Certified · PMP®</div>
-                  <div className="text-xs mt-0.5" style={{ color: "var(--muted-foreground)" }}>SAP AI Evangelist · 6 Active Certifications</div>
+                  <div className="text-sm font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
+                  <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.45)" }}>SAP AI Evangelist · 6 Active Certifications</div>
                 </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>

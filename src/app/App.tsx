@@ -145,7 +145,7 @@ const SAP_MODULES = [
   { name: "SAP BTP & Integration Suite", level: 88 },
   { name: "SAP Generative AI & AI Core", level: 87 },
   { name: "SAP Fiori / UI5", level: 88 },
-  { name: "SAP GRC & Security", level: 80 },
+  { name: "SAP Change Management", level: 80 },
   { name: "SAP PPM / Portfolio Management", level: 87 },
 ];
 
@@ -413,7 +413,7 @@ export default function App() {
           </div>
           <a href="mailto:sandeeprawatabap@gmail.com" className="hidden md:flex items-center gap-2 text-xs px-4 py-2 rounded-sm transition-all duration-200 hover:opacity-85"
             style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Inter, sans-serif", fontWeight: 600 }}>
-            <Mail size={12} /> Get in Touch
+            <Mail size={12} /> Connect
           </a>
         </div>
       </nav>
@@ -451,7 +451,7 @@ export default function App() {
                 <button onClick={() => scrollTo("Services")}
                   className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold transition-all duration-200 hover:opacity-88"
                   style={{ background: "var(--primary)", color: "var(--primary-foreground)", fontFamily: "Outfit, sans-serif" }}>
-                  View Services <ArrowRight size={15} />
+                  View Competencies <ArrowRight size={15} />
                 </button>
                 <button onClick={() => scrollTo("AI Journey")}
                   className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-medium border transition-all duration-200"

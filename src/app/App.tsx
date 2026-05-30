@@ -219,6 +219,7 @@ const AI_ROADMAP = [
 
 const CERTIFICATIONS = [
   { title: "SAP Generative AI Developer", issuer: "SAP SE", year: "2025", badge: "C_AIG", image: "/sap-gen-ai-cert.png", imgFit: "cover" as const },
+  { title: "SAP Certified — SAP Enterprise Architect", issuer: "SAP SE", year: "2026", badge: "SAP EA", image: "/sap-ea-badge.png", imgFit: "contain" as const },
   { title: "Project Management Professional", issuer: "Project Management Institute", year: "Active", badge: "PMP®", image: "/pmp-badge.png", imgFit: "contain" as const },
   { title: "Certified Associate in Project Management", issuer: "Project Management Institute", year: "Active", badge: "CAPM®", image: "/capm-badge.png", imgFit: "contain" as const },
   { title: "SAP Certified Development Specialist — ABAP for SAP HANA", issuer: "SAP SE", year: "2014", badge: "HANA ABAP", image: "/hana-abap-badge-lg.png", imgFit: "contain" as const },
@@ -493,7 +494,7 @@ export default function App() {
                 <MapPin size={11} /> Pune, Maharashtra · India
               </div>
               <p className="text-sm leading-relaxed max-w-sm" style={{ color: "rgba(240,237,230,0.55)" }}>
-                17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · PMP® · 6 active certifications.
+                17+ years driving complex SAP transformations at Volkswagen, IBM, Deluxe, and TCS. SAP Gen AI Certified · SAP Enterprise Architect · PMP® · 7 active certifications.
               </p>
             </motion.div>
 
@@ -514,8 +515,8 @@ export default function App() {
                   <Sparkles size={15} style={{ color: "#C49B4B" }} />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI Certified · PMP®</div>
-                  <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.55)" }}>6 Active Certifications</div>
+                  <div className="text-xs font-semibold" style={{ fontFamily: "Outfit, sans-serif", color: "#F0EDE6" }}>SAP Gen AI · SAP EA · PMP®</div>
+                  <div className="text-xs mt-0.5" style={{ color: "rgba(240,237,230,0.55)" }}>7 Active Certifications</div>
                 </div>
               </div>
             </motion.div>
